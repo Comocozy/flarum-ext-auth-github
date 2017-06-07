@@ -1,31 +1,31 @@
 'use strict';
 
-System.register('flarum/auth/github/components/GithubSettingsModal', ['flarum/components/SettingsModal'], function (_export, _context) {
+System.register('comocozy/auth/naver/components/NaverSettingsModal', ['flarum/components/SettingsModal'], function (_export, _context) {
   "use strict";
 
-  var SettingsModal, GithubSettingsModal;
+  var SettingsModal, NaverSettingsModal;
   return {
     setters: [function (_flarumComponentsSettingsModal) {
       SettingsModal = _flarumComponentsSettingsModal.default;
     }],
     execute: function () {
-      GithubSettingsModal = function (_SettingsModal) {
-        babelHelpers.inherits(GithubSettingsModal, _SettingsModal);
+      NaverSettingsModal = function (_SettingsModal) {
+        babelHelpers.inherits(NaverSettingsModal, _SettingsModal);
 
-        function GithubSettingsModal() {
-          babelHelpers.classCallCheck(this, GithubSettingsModal);
-          return babelHelpers.possibleConstructorReturn(this, (GithubSettingsModal.__proto__ || Object.getPrototypeOf(GithubSettingsModal)).apply(this, arguments));
+        function NaverSettingsModal() {
+          babelHelpers.classCallCheck(this, NaverSettingsModal);
+          return babelHelpers.possibleConstructorReturn(this, (NaverSettingsModal.__proto__ || Object.getPrototypeOf(NaverSettingsModal)).apply(this, arguments));
         }
 
-        babelHelpers.createClass(GithubSettingsModal, [{
+        babelHelpers.createClass(NaverSettingsModal, [{
           key: 'className',
           value: function className() {
-            return 'GithubSettingsModal Modal--small';
+            return 'NaverSettingsModal Modal--small';
           }
         }, {
           key: 'title',
           value: function title() {
-            return app.translator.trans('flarum-auth-github.admin.github_settings.title');
+            return app.translator.trans('comocozy-auth-naver.admin.naver_settings.title');
           }
         }, {
           key: 'form',
@@ -36,45 +36,47 @@ System.register('flarum/auth/github/components/GithubSettingsModal', ['flarum/co
               m(
                 'label',
                 null,
-                app.translator.trans('flarum-auth-github.admin.github_settings.client_id_label')
+                app.translator.trans('comocozy-auth-naver.admin.naver_settings.client_id_label')
               ),
-              m('input', { className: 'FormControl', bidi: this.setting('flarum-auth-github.client_id') })
+              m('input', { className: 'FormControl', bidi: this.setting('comocozy-auth-naver.client_id') })
             ), m(
               'div',
               { className: 'Form-group' },
               m(
                 'label',
                 null,
-                app.translator.trans('flarum-auth-github.admin.github_settings.client_secret_label')
+                app.translator.trans('comocozy-auth-naver.admin.naver_settings.client_secret_label')
               ),
-              m('input', { className: 'FormControl', bidi: this.setting('flarum-auth-github.client_secret') })
+              m('input', { className: 'FormControl', bidi: this.setting('comocozy-auth-naver.client_secret') })
             )];
           }
         }]);
-        return GithubSettingsModal;
+        return NaverSettingsModal;
       }(SettingsModal);
 
-      _export('default', GithubSettingsModal);
+      _export('default', NaverSettingsModal);
     }
   };
 });;
 'use strict';
 
-System.register('flarum/auth/github/main', ['flarum/app', 'flarum/auth/github/components/GithubSettingsModal'], function (_export, _context) {
+System.register('comocozy/auth/naver/main', ['flarum/extend', 'flarum/app', 'comocozy/auth/naver/components/NaverSettingsModal'], function (_export, _context) {
   "use strict";
 
-  var app, GithubSettingsModal;
+  var app, NaverSettingsModal;
   return {
-    setters: [function (_flarumApp) {
+    setters: [function (_flarumExtend) {
+      extend = _flarumExtend.extend;
+    }, function (_flarumApp) {
       app = _flarumApp.default;
-    }, function (_flarumAuthGithubComponentsGithubSettingsModal) {
-      GithubSettingsModal = _flarumAuthGithubComponentsGithubSettingsModal.default;
+    }, function (_comocozyAuthNaverComponentsNaverSettingsModal) {
+      NaverSettingsModal = _comocozyAuthNaverComponentsNaverSettingsModal.default;
     }],
     execute: function () {
 
-      app.initializers.add('flarum-auth-github', function () {
-        app.extensionSettings['flarum-auth-github'] = function () {
-          return app.modal.show(new GithubSettingsModal());
+      app.initializers.add('comocozy-auth-naver', function () {
+        app.extensionSettings['comocozy-auth-naver'] = function () {
+          return app.modal.show(new NaverSettingsModal());
         };
       });
     }

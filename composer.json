@@ -1,26 +1,26 @@
 {
-    "name": "flarum/flarum-ext-auth-github",
-    "description": "Allow users to log in with GitHub.",
+    "name": "comocozy/flarum-ext-auth-naver",
+    "description": "Allow users to log in with Naver.",
     "type": "flarum-extension",
     "keywords": ["authentication"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Toby Zerner",
-            "email": "toby.zerner@gmail.com"
+            "name": "Comocozy",
+	          "email": "woogyom@comocozy.com"
         }
     ],
     "support": {
-        "issues": "https://github.com/flarum/core/issues",
-        "source": "https://github.com/flarum/flarum-ext-auth-github"
+        "issues": "https://github.com/Comocozy/flarum-ext-auth-naver/issues",
+        "source": "https://github.com/Comocozy/flarum-ext-auth-naver"
     },
     "require": {
         "flarum/core": "^0.1.0-beta.6",
-        "league/oauth2-github": "^0.2.0"
+        "comocozy/oauth2-naver": "^0.1.0"
     },
     "autoload": {
         "psr-4": {
-            "Flarum\\Auth\\GitHub\\": "src/"
+            "Comocozy\\Auth\\Naver\\": "src/"
         }
     },
     "extra": {
@@ -28,11 +28,11 @@
             "dev-master": "0.1.x-dev"
         },
         "flarum-extension": {
-            "title": "GitHub Login",
+            "title": "Naver Login",
             "icon": {
-                "name": "github",
-                "backgroundColor": "#eee",
-                "color": "#333"
+                "name": "naver",
+                "backgroundColor": "#00c73c",
+                "color": "#fff"
             }
         }
     }

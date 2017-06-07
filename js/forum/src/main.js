@@ -3,14 +3,14 @@ import app from 'flarum/app';
 import LogInButtons from 'flarum/components/LogInButtons';
 import LogInButton from 'flarum/components/LogInButton';
 
-app.initializers.add('flarum-auth-github', () => {
+app.initializers.add('comocozy-auth-naver', () => {
   extend(LogInButtons.prototype, 'items', function(items) {
-    items.add('github',
+    items.add('naver',
       <LogInButton
-        className="Button LogInButton--github"
-        icon="github"
-        path="/auth/github">
-        {app.translator.trans('flarum-auth-github.forum.log_in.with_github_button')}
+        className="Button LogInButton--naver"
+        icon="naver"
+        path="/auth/naver">
+        {app.translator.trans('comocozy-auth-naver.forum.log_in.with_naver_button')}
       </LogInButton>
     );
   });

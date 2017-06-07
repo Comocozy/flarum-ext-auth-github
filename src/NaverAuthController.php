@@ -1,23 +1,21 @@
 <?php
 
 /*
- * This file is part of Flarum.
- *
- * (c) Toby Zerner <toby.zerner@gmail.com>
+ * (c) Comocozy <woogyom@comocozy.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Auth\GitHub;
+namespace Comocozy\Auth\Naver;
 
 use Flarum\Forum\AuthenticationResponseFactory;
 use Flarum\Forum\Controller\AbstractOAuth2Controller;
 use Flarum\Settings\SettingsRepositoryInterface;
-use League\OAuth2\Client\Provider\Github;
+use Comocozy\OAuth2\Client\Provider\Naver;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 
-class GitHubAuthController extends AbstractOAuth2Controller
+class NaverAuthController extends AbstractOAuth2Controller
 {
     /**
      * @var SettingsRepositoryInterface
@@ -39,9 +37,9 @@ class GitHubAuthController extends AbstractOAuth2Controller
      */
     protected function getProvider($redirectUri)
     {
-        return new Github([
-            'clientId'     => $this->settings->get('flarum-auth-github.client_id'),
-            'clientSecret' => $this->settings->get('flarum-auth-github.client_secret'),
+        return new Naver([
+            'clientId'     => $this->settings->get('flarum-auth-naver.client_id'),
+            'clientSecret' => $this->settings->get('flarum-auth-naver.client_secret'),
             'redirectUri'  => $redirectUri
         ]);
     }
@@ -60,7 +58,7 @@ class GitHubAuthController extends AbstractOAuth2Controller
     protected function getIdentification(ResourceOwnerInterface $resourceOwner)
     {
         return [
-            'email' => $resourceOwner->getEmail() ?: $this->getEmailFromApi()
+            'email' => $resourceOwner->getEmail()
         ];
     }
 
@@ -71,22 +69,7 @@ class GitHubAuthController extends AbstractOAuth2Controller
     {
         return [
             'username' => $resourceOwner->getNickname(),
-            'avatarUrl' => array_get($resourceOwner->toArray(), 'avatar_url')
+            'avatarUrl' => array_get($resourceOwner->toArray(), 'profile_image')
         ];
-    }
-
-    protected function getEmailFromApi()
-    {
-        $url = $this->provider->apiDomain.'/user/emails';
-
-        $emails = $this->provider->getResponse(
-            $this->provider->getAuthenticatedRequest('GET', $url, $this->token)
-        );
-
-        foreach ($emails as $email) {
-            if ($email['primary'] && $email['verified']) {
-                return $email['email'];
-            }
-        }
     }
 }

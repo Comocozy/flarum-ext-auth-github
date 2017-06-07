@@ -1,6 +1,6 @@
 'use strict';
 
-System.register('flarum/auth/github/main', ['flarum/extend', 'flarum/app', 'flarum/components/LogInButtons', 'flarum/components/LogInButton'], function (_export, _context) {
+System.register('comocozy/auth/naver/main', ['flarum/extend', 'flarum/app', 'flarum/components/LogInButtons', 'flarum/components/LogInButton'], function (_export, _context) {
   "use strict";
 
   var extend, app, LogInButtons, LogInButton;
@@ -16,15 +16,15 @@ System.register('flarum/auth/github/main', ['flarum/extend', 'flarum/app', 'flar
     }],
     execute: function () {
 
-      app.initializers.add('flarum-auth-github', function () {
+      app.initializers.add('comocozy-auth-naver', function () {
         extend(LogInButtons.prototype, 'items', function (items) {
-          items.add('github', m(
+          items.add('naver', m(
             LogInButton,
             {
-              className: 'Button LogInButton--github',
-              icon: 'github',
-              path: '/auth/github' },
-            app.translator.trans('flarum-auth-github.forum.log_in.with_github_button')
+              className: 'Button LogInButton--naver',
+              icon: 'naver',
+              path: '/auth/naver' },
+            app.translator.trans('comocozy-auth-naver.forum.log_in.with_naver_button')
           ));
         });
       });

@@ -1,7 +1,8 @@
+import { extend } from 'flarum/extend';
 import app from 'flarum/app';
 
-import GithubSettingsModal from 'flarum/auth/github/components/GithubSettingsModal';
+import NaverSettingsModal from 'comocozy/auth/naver/components/NaverSettingsModal';
 
-app.initializers.add('flarum-auth-github', () => {
-  app.extensionSettings['flarum-auth-github'] = () => app.modal.show(new GithubSettingsModal());
+app.initializers.add('comocozy-auth-naver', () => {
+  app.extensionSettings['comocozy-auth-naver'] = () => app.modal.show(new NaverSettingsModal());
 });

@@ -1,20 +1,18 @@
 <?php
 
 /*
- * This file is part of Flarum.
- *
- * (c) Toby Zerner <toby.zerner@gmail.com>
+ * (c) Comocozy <woogyom@comocozy.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Auth\GitHub\Listener;
+namespace Comocozy\Auth\Naver\Listener;
 
 use Flarum\Event\ConfigureForumRoutes;
 use Illuminate\Contracts\Events\Dispatcher;
 
-class AddGitHubAuthRoute
+class AddNaverAuthRoute
 {
     /**
      * @param Dispatcher $events
@@ -29,6 +27,6 @@ class AddGitHubAuthRoute
      */
     public function configureForumRoutes(ConfigureForumRoutes $event)
     {
-        $event->get('/auth/github', 'auth.github', 'Flarum\Auth\GitHub\GitHubAuthController');
+        $event->get('/auth/naver', 'auth.naver', 'Comocozy\Auth\Naver\NaverAuthController');
     }
 }
