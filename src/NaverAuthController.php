@@ -12,7 +12,7 @@ namespace Comocozy\Auth\Naver;
 use Flarum\Forum\AuthenticationResponseFactory;
 use Flarum\Forum\Controller\AbstractOAuth2Controller;
 use Flarum\Settings\SettingsRepositoryInterface;
-use Comocozy\OAuth2\Client\Provider\Naver;
+use League\OAuth2\Client\Provider\Naver;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 
 class NaverAuthController extends AbstractOAuth2Controller
