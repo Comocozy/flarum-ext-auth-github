@@ -60,21 +60,19 @@ System.register('comocozy/auth/naver/components/NaverSettingsModal', ['flarum/co
 });;
 'use strict';
 
-System.register('comocozy/auth/naver/main', ['flarum/extend', 'flarum/app', 'comocozy/auth/naver/components/NaverSettingsModal'], function (_export, _context) {
+System.register('comocozy/auth/naver/main', ['flarum/app', 'comocozy/auth/naver/components/NaverSettingsModal'], function (_export, _context) {
   "use strict";
 
   var app, NaverSettingsModal;
   return {
-    setters: [function (_flarumExtend) {
-      extend = _flarumExtend.extend;
-    }, function (_flarumApp) {
+    setters: [function (_flarumApp) {
       app = _flarumApp.default;
     }, function (_comocozyAuthNaverComponentsNaverSettingsModal) {
       NaverSettingsModal = _comocozyAuthNaverComponentsNaverSettingsModal.default;
     }],
     execute: function () {
 
-      app.initializers.add('comocozy/auth/naver', function () {
+      app.initializers.add('comocozy-auth-naver', function () {
         app.extensionSettings['comocozy-auth-naver'] = function () {
           return app.modal.show(new NaverSettingsModal());
         };

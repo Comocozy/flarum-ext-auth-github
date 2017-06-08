@@ -3,7 +3,7 @@ import app from 'flarum/app';
 import LogInButtons from 'flarum/components/LogInButtons';
 import LogInButton from 'flarum/components/LogInButton';
 
-app.initializers.add('comocozy/auth/naver', () => {
+app.initializers.add('comocozy-auth-naver', () => {
   extend(LogInButtons.prototype, 'items', function(items) {
     items.add('naver',
       <LogInButton

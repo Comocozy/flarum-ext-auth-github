@@ -16,7 +16,7 @@ System.register('comocozy/auth/naver/main', ['flarum/extend', 'flarum/app', 'fla
     }],
     execute: function () {
 
-      app.initializers.add('comocozy/auth/naver', function () {
+      app.initializers.add('comocozy-auth-naver', function () {
         extend(LogInButtons.prototype, 'items', function (items) {
           items.add('naver', m(
             LogInButton,

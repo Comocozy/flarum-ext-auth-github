@@ -1,5 +1,4 @@
 import SettingsModal from 'flarum/components/SettingsModal';
-import app from 'flarum/app';
 
 export default class NaverSettingsModal extends SettingsModal {
   className() {
