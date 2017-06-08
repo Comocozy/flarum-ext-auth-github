@@ -2,7 +2,7 @@ comocozy-auth-naver:
 
   admin:
     naver_settings:
-      title: "Naver Settings"
+      title: "Naver 아이디로 로그인 설정"
       client_id_label: "Client ID"
       client_secret_label: "Client Secret"
 
