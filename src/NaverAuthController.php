@@ -38,8 +38,8 @@ class NaverAuthController extends AbstractOAuth2Controller
     protected function getProvider($redirectUri)
     {
         return new Naver([
-            'clientId'     => $this->settings->get('flarum-auth-naver.client_id'),
-            'clientSecret' => $this->settings->get('flarum-auth-naver.client_secret'),
+            'clientId'     => $this->settings->get('comocozy-auth-naver.client_id'),
+            'clientSecret' => $this->settings->get('comocozy-auth-naver.client_secret'),
             'redirectUri'  => $redirectUri
         ]);
     }

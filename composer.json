@@ -30,6 +30,7 @@
         "flarum-extension": {
             "title": "Naver Login",
             "icon": {
+                "image": "icon.svg",
                 "name": "naver",
                 "backgroundColor": "#00c73c",
                 "color": "#fff"

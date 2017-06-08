@@ -74,7 +74,7 @@ System.register('comocozy/auth/naver/main', ['flarum/extend', 'flarum/app', 'com
     }],
     execute: function () {
 
-      app.initializers.add('comocozy-auth-naver', function () {
+      app.initializers.add('comocozy/auth/naver', function () {
         app.extensionSettings['comocozy-auth-naver'] = function () {
           return app.modal.show(new NaverSettingsModal());
         };
