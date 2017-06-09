@@ -69,7 +69,7 @@ class NaverAuthController extends AbstractOAuth2Controller
     {
         return [
             'username' => $resourceOwner->getNickname(),
-            'avatarUrl' => array_get($resourceOwner->toArray(), 'profile_image')
+            'avatarUrl' => $resourceOwner->getAvatarUrl()
         ];
     }
 }
